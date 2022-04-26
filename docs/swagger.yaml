@@ -1,0 +1,48 @@
+basePath: /v1
+definitions:
+  schemas.Customer:
+    properties:
+      birthDate:
+        type: string
+      cpf:
+        type: string
+      name:
+        type: string
+    type: object
+info:
+  contact: {}
+  description: Descrição da minha api
+  title: Este é o título da minha api
+  version: "1.0"
+paths:
+  /customers/:
+    post:
+      consumes:
+      - application/json
+      description: create customer
+      parameters:
+      - description: nome
+        in: body
+        name: name
+        required: true
+        schema:
+          $ref: '#/definitions/schemas.Customer'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: meu corpo de respota
+          schema:
+            items:
+              $ref: '#/definitions/schemas.Customer'
+            type: array
+        "404":
+          description: Resposta de erro
+          schema:
+            type: string
+      summary: Show a account
+      tags:
+      - customer
+swagger: "2.0"
+x-extension-openapi:
+  example: value on a json format

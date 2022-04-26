@@ -1,0 +1,74 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Descrição da minha api",
+        "title": "Este é o título da minha api",
+        "contact": {},
+        "version": "1.0"
+    },
+    "basePath": "/v1",
+    "paths": {
+        "/customers/": {
+            "post": {
+                "description": "create customer",
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "customer"
+                ],
+                "summary": "Show a account",
+                "parameters": [
+                    {
+                        "description": "nome",
+                        "name": "name",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/schemas.Customer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "meu corpo de respota",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/schemas.Customer"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Resposta de erro",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "schemas.Customer": {
+            "type": "object",
+            "properties": {
+                "birthDate": {
+                    "type": "string"
+                },
+                "cpf": {
+                    "type": "string"
+                },
+                "name": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "x-extension-openapi": {
+        "example": "value on a json format"
+    }
+}

@@ -17,6 +17,9 @@ type Settings struct {
 	DbPort string `env:"DB_PORT"`
 	DbSSLMode string `env:"DB_SSL_MODE" envDefault:"disable"`
 	DbConnectionString string
+	AppDefaultHost string `env:"APP_DEFAULT_HOST" envDefault:"0.0.0.0"`
+	AppDefaultPort string `env:"APP_DEFAULT_PORT" envDefault:"8081"`
+	AppBasePath string `env:"BASE_PATH"`
 }
 
 func init() {

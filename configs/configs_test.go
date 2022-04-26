@@ -3,7 +3,7 @@ package configs
 import (
 	"testing"
 )
-//
+
 func init() {
 	LoadEnvFromFile()
 }

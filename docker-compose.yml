@@ -1,0 +1,23 @@
+version: '2.1'
+services:
+  postgres:
+    image: "postgres"
+    container_name: postgres
+    restart: always
+    volumes:
+      - postgres_customer_go:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - TZ=$TZ
+      - POSTGRES_USER=$DB_USER
+      - POSTGRES_PASSWORD=$DB_PASSWORD
+      - POSTGRES_DB=$DB_NAME
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_customer_go:
